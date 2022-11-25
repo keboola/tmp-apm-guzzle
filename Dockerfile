@@ -1,5 +1,5 @@
 FROM php:7-cli
-ENV DD_PHP_TRACER_VERSION=0.74.0
+ENV DD_PHP_TRACER_VERSION=0.80.0
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
 RUN curl -Lf "https://github.com/DataDog/dd-trace-php/releases/download/${DD_PHP_TRACER_VERSION}/datadog-setup.php" > /tmp/datadog-setup.php \
