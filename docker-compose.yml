@@ -1,0 +1,22 @@
+services:
+  dev:
+    build: .
+    environment:
+      DD_TRACE_DEBUG: 'true'
+      DD_TRACE_CLI_ENABLED: 'true'
+    volumes:
+      - .:/code
+    working_dir: /code
+    depends_on:
+      - server
+
+  server:
+    image: php:7-cli
+    volumes:
+      - .:/code
+    working_dir: /code
+    command:
+      - php
+      - -S
+      - '0.0.0.0:8000'
+      - server.php
